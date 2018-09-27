@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<HTML dir='ltr' lang='en-US'>
+
 <head>
-<meta charset="utf-8">
+    <meta content='width=device-width,minimum-scale=1,initial-scale=1' name='viewport'/>
+    <meta charset='utf-8' />
 <title>Random Posts</title>
-<meta content='width=device-width, initial-scale=1' name='viewport'>
 <style>
 body {
   background-color:transparent;
@@ -63,8 +64,7 @@ function getQueryVariable(variable) {
 	return(false);
 }
 var domain = getQueryVariable("url");
-var jumlah = getQueryVariable("post");
-function showlatestposts(json){document.write('<ul id="recent-posts">');for(var i=0;i<jumlah;i++){var entry=json.feed.entry[i];var posttitle=entry.title.$t;var postsurl;if(i==json.feed.entry.length)break;for(var k=0;k<entry.link.length;k++){if(entry.link[k].rel=='alternate'){postsurl=entry.link[k].href;break;}}
+function showlatestposts(json){document.write('<ul id="recent-posts">');for(var i=0;i<6;i++){var entry=json.feed.entry[i];var posttitle=entry.title.$t;var postsurl;if(i==json.feed.entry.length)break;for(var k=0;k<entry.link.length;k++){if(entry.link[k].rel=='alternate'){postsurl=entry.link[k].href;break;}}
 document.write('<li class="recent-posts">');document.write('<a href="'+ postsurl+'" target ="_blank" title="'+ posttitle+'">'+ posttitle+'</a>');document.write('</li>');}
 document.write('</ul>');};
 document.write("<scr" + "ipt type=\"text/javascript\" src=\""+domain+"/feeds/posts/default?orderby=published&amp;alt=json-in-script&amp;callback=showlatestposts\"></scr" + "ipt>");
